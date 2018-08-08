@@ -5,21 +5,22 @@ $javaX86 = "C:\Program Files (x86)\Java\$currentversion"
 $javaX64 = "C:\Program Files\Java\$currentversion"
 if ([Environment]::Is64BitProcess -eq $True)
 {
-if ( -not (Test-Path $javaX64 ))
-{
-& .\x64.exe /s
+  if ( -not (Test-Path $javaX64 ))
+  {
+    & .\x64.exe /s
+  }
+  if ( -not (Test-Path $javaX86))
+  {
+    & .\x86.exe /s
+  }
 }
-if ( -not (Test-Path $javaX86))
-{
-& .\x86.exe /s
-}
-}
+
 if ([Environment]::Is64BitProcess -eq $False)
 {
-if ( -not (Test-Path $javaX64 ))
-{
-& .\x86.exe /s
-}
+  if ( -not (Test-Path $javaX64 ))
+  {
+    & .\x86.exe /s
+  }
 }
 
 

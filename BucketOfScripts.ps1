@@ -80,3 +80,18 @@ if ( -not (Test-Path $npapiloc ))
 {
   & msiexec.exe /i install_flash_player_30_plugin.msi /qn /noreboot
 }
+
+
+#####################################################################
+ # _____  ______          _____  ______ _____    _____   _____ 
+ #|  __ \|  ____|   /\   |  __ \|  ____|  __ \  |  __ \ / ____|
+ #| |__) | |__     /  \  | |  | | |__  | |__) | | |  | | |     
+ #|  _  /|  __|   / /\ \ | |  | |  __| |  _  /  | |  | | |     
+ #| | \ \| |____ / ____ \| |__| | |____| | \ \  | |__| | |____ 
+ #|_|  \_\______/_/    \_\_____/|______|_|  \_\ |_____/ \_____|
+################################################################                                                              
+$currver = (Get-Item "C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe").VersionInfo | Select-Object -ExpandProperty FileVersion
+if ( -not ($currver -eq "18.11.20055.290043"))
+{
+    & .\AcroRdrDC1801120055_en_US.exe /msi EULA_ACCEPT=YES /qn
+}
